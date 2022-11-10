@@ -1,7 +1,7 @@
 #!name=微博轻享版去广告
 #!desc=微博轻享版去广告
 
-[MITM]	
+[MITM]
 hostname = %APPEND% api.weibo.cn, api.weibo.com, sdkapp.uve.weibo.com
 
 [Rule]
