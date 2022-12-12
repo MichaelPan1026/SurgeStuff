@@ -1,11 +1,10 @@
-#!name=微博/微博轻享版净化净化
+#!name=微博/微博轻享版净化
 #!desc=微博/微博轻享版净化
 
 [MITM]
 hostname = *api.weibo*, *uve.weibo.com, new.vip.weibo.cn
 
 [Map Local]
-
 # 微博国际版_hot_search@ddgksf2013
 ^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php\?a=hot_search_users data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank_dict.json"
 # 微博国际版_热推荐@ddgksf2013
