@@ -2,7 +2,7 @@
 #!desc=微博/微博轻享版净化
 
 [MITM]
-hostname = *api.weibo*, *uve.weibo.com, new.vip.weibo.cn
+hostname = %APPEND% *api.weibo*, *uve.weibo.com, new.vip.weibo.cn
 
 [Map Local]
 # 微博国际版_hot_search@ddgksf2013
