@@ -7,6 +7,7 @@ hostname = %APPEND% *amap.com
 [Rule]
 # 通用广告请求@ddgksf2013
 URL-REGEX,^https?:\/\/.*\.amap\.com\/ws\/asa\/ads_attribution,REJECT
+# 首页左上角gif@ddgksf2013
 URL-REGEX,^https?:\/\/.*\.amap\.com\/uploadimg\/\w+\.gif,REJECT-TINYGIF
 
 [Map Local]
