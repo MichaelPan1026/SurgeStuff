@@ -2,7 +2,7 @@
 #!desc=Bilibili去广告+画质解锁
 
 [MITM]
-hostname = %APPEND% app.bilibili.com,api.live.bilibili.com,api.vc.bilibili.com, api.bilibili.com, manga.bilibili.com, grpc.biliapi.net,api.biliapi.net, -broadcast.chat.bilibili.com, -*cdn*.biliapi.net, -*tracker*.biliapi.net
+hostname = %APPEND% app.bilibili.com,api.live.bilibili.com,api.vc.bilibili.com, *.bilibili.com, *.bilibili.*, grpc.biliapi.net,api.biliapi.net, -broadcast.chat.bilibili.com, -*cdn*.biliapi.net, -*tracker*.biliapi.net
 
 [Rule]
 # 屏蔽IP请求@ddgksf2013
@@ -23,13 +23,11 @@ URL-REGEX,^https?:\/\/app\.bilibili\.com\/bilibili\.app\.interface\.v1\.Search\/
 ^https?:\/\/api\.bilibili\.com\/x\/vip\/ads\/material\/report data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank_dict.json"
 # 小卡片广告@ddgksf2013
 ^https://api.bilibili.com/pgc/season/player/cards data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank_dict.json"
-# 去除动态中的话题@bm7
-^https?:\/\/api\.vc\.bilibili\.com\/topic_svr\/v1\/topic_svr data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank_dict.json"
 # 漫画去广告@ddgksf2013
 ^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Comic\/(Flash|ListFlash) data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank_dict.json"
 
 [Script]
-屏蔽首页右上活动[卸载重装]@ddgksf2013 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/app\.bilibili\.com\/x\/resource\/top\/activity,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js
+屏蔽首页右上活动@ddgksf2013 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/app\.bilibili\.com\/x\/resource\/top\/activity,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js
 观影页面去广告@ddgksf2013 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/api\.(bilibili|biliapi)\.(com|net)\/pgc\/page\/cinema\/tab\?,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js
 应用开屏广告预加载@yjqiang = type=http-response,requires-body=1,max-size=0,pattern=^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/list,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js
 1080P高码率+4K画质(番剧和影视除外)@ddgksf2013 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/myinfo\?,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js
