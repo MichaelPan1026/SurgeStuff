@@ -1,0 +1,26 @@
+#!name=高德地图☆净化
+#!desc=高德地图☆净化
+
+[MITM]
+hostname = %APPEND% *amap.com
+
+[Rule]
+# 通用广告请求@ddgksf2013
+URL-REGEX,^https?:\/\/.*\.amap\.com\/ws\/asa\/ads_attribution,REJECT
+URL-REGEX,^https?:\/\/.*\.amap\.com\/uploadimg\/\w+\.gif,REJECT-TINYGIF
+
+[Map Local]
+# Tip请求@ddgksf2013
+^https?:\/\/.*\.amap\.com\/ws\/boss\/order_web\/\w{8}_information data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank.txt"
+# 搜索框scene@ddgksf2013
+^https?:\/\/.*\.amap\.com\/ws\/shield\/scene\/recommend data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank_dict.json"
+# 左下天气@ddgksf2013
+^https?:\/\/.*\.amap\.com\/ws\/valueadded\/weather data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank_dict.json"
+
+
+[Script]
+高德地图_首页底部处理@ddgksf2013 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/.*\.amap\.com\/ws\/faas\/amap-navigation\/main-page,script-path=https://github.com/ddgksf2013/Scripts/raw/master/amap.js
+高德地图_开屏广告@ddgksf2013 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/.*\.amap\.com\/ws\/valueadded\/alimama\/splash_screen,script-path=https://github.com/ddgksf2013/Scripts/raw/master/amap.js
+高德地图_首页顶部推广@ddgksf2013 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/.*\.amap\.com\/ws\/msgbox\/pull,script-path=https://github.com/ddgksf2013/Scripts/raw/master/amap.js
+高德地图_我的页面@ddgksf2013 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/.*\.amap\.com\/ws\/shield\/dsp\/profile\/index\/nodefaas,script-path=https://github.com/ddgksf2013/Scripts/raw/master/amap.js
+高德地图_搜索框热词@ddgksf2013 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/.*\.amap\.com\/ws\/shield\/search\/new_hotword,script-path=https://github.com/ddgksf2013/Scripts/raw/master/amap.js
