@@ -1,0 +1,6 @@
+#!name=Bilibili皮肤自定义
+#!desc=Bilibili皮肤自定义
+
+[Script]
+biliskindetail = type=http-response,pattern=^https:\/\/api\.bilibili\.com\/x\/garb\/v2\/mall\/suit\/detail,requires-body=1,script-path=https://raw.githubusercontent.com/kokoryh/Script/master/js/bili-suit-detail.js
+biliskindiy = type=http-response,pattern=^https:\/\/app\.bilibili\.com\/x\/resource\/show\/skin\?,requires-body=1,script-path=https://raw.githubusercontent.com/kokoryh/Script/master/js/bili-suit-diy.js
