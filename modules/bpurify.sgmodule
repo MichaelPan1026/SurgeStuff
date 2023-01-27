@@ -4,11 +4,11 @@
 [MITM]
 hostname = %APPEND% app.bilibili.com,api.live.bilibili.com, api.bilibili.com,manga.bilibili.com,grpc.biliapi.net,api.biliapi.net,api.bilibili.net,api.biliapi.com
 
-[Rule]
+[URL Rewrite]
 # 屏蔽IP请求@ddgksf2013
-URL-REGEX,^https?:\/\/app\.bilibili\.com\/x\/resource\/ip,REJECT
+^https?:\/\/app\.bilibili\.com\/x\/resource\/ip - reject
 # 屏蔽DefaultWord@ddgksf2013
-URL-REGEX,^https?:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.interface\.v1\.Search\/Default,REJECT
+^https?:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.interface\.v1\.Search\/Default - reject
 
 [Map Local]
 # 屏蔽广告浮窗@ddgksf2013
