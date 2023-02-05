@@ -1,5 +1,5 @@
 #!name=Bilibili去广告+画质解锁2
-#!desc=Bilibili去广告+画质解锁2 (2023-01-22)
+#!desc=(2023-02-02)
 
 [MITM]
 hostname = %APPEND% app.bilibili.com,api.live.bilibili.com, api.bilibili.com,manga.bilibili.com,grpc.biliapi.net,api.biliapi.net,api.bilibili.net,api.biliapi.com
