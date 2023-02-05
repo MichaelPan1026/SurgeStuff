@@ -1,5 +1,5 @@
 #!name=微博/微博轻享版净化
-#!desc=微博/微博轻享版净化
+#!desc=(2023-02-03)
 
 [MITM]
 hostname = %APPEND% *api.weibo*, *uve.weibo.com, new.vip.weibo.cn
