@@ -1,5 +1,5 @@
 #!name=高德地图☆净化
-#!desc=(2023-02-02)
+#!desc=(2023-02-08)
 
 [MITM]
 hostname = %APPEND% *amap.com
@@ -18,17 +18,16 @@ DOMAIN,amdc.m.taobao.com,REJECT
 ^https?:\/\/.*\.amap\.com\/ws\/shield\/scene\/recommend data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank_dict.json"
 # 左下天气@ddgksf2013
 ^https?:\/\/.*\.amap\.com\/ws\/valueadded\/weather data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank_dict.json"
-# 底部tab栏角标@ddgksf2013
-^https?:\/\/.*\.amap\.com\/ws\/message\/notice\/list data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank_dict.json"
 # 首页左上角gif@ddgksf2013
 ^https?:\/\/.*\.amap\.com\/uploadimg\/\w+\.gif data="https://raw.githubusercontent.com/MichaelPan1026/SurgeStuff/main/blank/blank.gif"
 
 [Script]
-高德地图_首页右中广告@ddgksf2013 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/.*\.amap\.com\/ws\/shield\/frogserver\/aocs\/updatable,script-path=https://github.com/ddgksf2013/Scripts/raw/master/amap.js
-高德地图_附近页面@ddgksf2013 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/.*\.amap\.com\/ws\/shield\/search\/nearbyrec_smart,script-path=https://github.com/ddgksf2013/Scripts/raw/master/amap.js
-高德地图_打车页面@ddgksf2013 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/.*\.amap\.com\/ws\/promotion-web\/resource,script-path=https://github.com/ddgksf2013/Scripts/raw/master/amap.js
-高德地图_首页底部处理@ddgksf2013 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/.*\.amap\.com\/ws\/faas\/amap-navigation\/main-page,script-path=https://github.com/ddgksf2013/Scripts/raw/master/amap.js
-高德地图_开屏广告@ddgksf2013 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/.*\.amap\.com\/ws\/valueadded\/alimama\/splash_screen,script-path=https://github.com/ddgksf2013/Scripts/raw/master/amap.js
-高德地图_首页顶部推广@ddgksf2013 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/.*\.amap\.com\/ws\/msgbox\/pull,script-path=https://github.com/ddgksf2013/Scripts/raw/master/amap.js
-高德地图_我的页面@ddgksf2013 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/.*\.amap\.com\/ws\/shield\/dsp\/profile\/index\/nodefaas,script-path=https://github.com/ddgksf2013/Scripts/raw/master/amap.js
-高德地图_搜索框热词@ddgksf2013 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/.*\.amap\.com\/ws\/shield\/search\/new_hotword,script-path=https://github.com/ddgksf2013/Scripts/raw/master/amap.js
+底部tab栏角标@ddgksf2013 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/.*\.amap\.com\/ws\/message\/notice\/list,script-path=https://github.com/ddgksf2013/Scripts/raw/master/amap.js
+首页右中广告@ddgksf2013 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/.*\.amap\.com\/ws\/shield\/frogserver\/aocs\/updatable,script-path=https://github.com/ddgksf2013/Scripts/raw/master/amap.js
+附近页面@ddgksf2013 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/.*\.amap\.com\/ws\/shield\/search\/nearbyrec_smart,script-path=https://github.com/ddgksf2013/Scripts/raw/master/amap.js
+打车页面@ddgksf2013 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/.*\.amap\.com\/ws\/promotion-web\/resource,script-path=https://github.com/ddgksf2013/Scripts/raw/master/amap.js
+首页底部处理@ddgksf2013 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/.*\.amap\.com\/ws\/faas\/amap-navigation\/main-page,script-path=https://github.com/ddgksf2013/Scripts/raw/master/amap.js
+开屏广告@ddgksf2013 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/.*\.amap\.com\/ws\/valueadded\/alimama\/splash_screen,script-path=https://github.com/ddgksf2013/Scripts/raw/master/amap.js
+首页顶部推广@ddgksf2013 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/.*\.amap\.com\/ws\/msgbox\/pull,script-path=https://github.com/ddgksf2013/Scripts/raw/master/amap.js
+我的页面@ddgksf2013 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/.*\.amap\.com\/ws\/shield\/dsp\/profile\/index\/nodefaas,script-path=https://github.com/ddgksf2013/Scripts/raw/master/amap.js
+搜索框热词@ddgksf2013 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/.*\.amap\.com\/ws\/shield\/search\/new_hotword,script-path=https://github.com/ddgksf2013/Scripts/raw/master/amap.js
