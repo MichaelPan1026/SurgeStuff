@@ -1,5 +1,5 @@
 #!name=微博/微博轻享版净化
-#!desc=(2023-04-03)
+#!desc=(2023-07-05)
 
 [MITM]
 hostname = %APPEND% api.weibo.*, *.api.weibo.*, mapi.weibo.*, *.uve.weibo.com, new.vip.weibo.cn, boot.biz.weibo.com
@@ -12,6 +12,8 @@ DOMAIN,boot.biz.weibo.com,REJECT
 ^https?:\/\/sdkapp\.uve\.weibo\.com\/interface\/sdk\/sdkconfig\.php - reject
 
 [Map Local]
+# > 微博_用户推荐弹窗@ddgksf2013
+^https?:\/\/api\.weibo\.cn\/\d\/profile\/recommend_popuser data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank.txt"
 # > 微博_每日一次的开屏广告请求@ddgksf2013
 ^https?:\/\/boot.*weibo\.com\/v\d\/ad\/realtime data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank.txt"
 # 微博国际版_hot_search@ddgksf2013
