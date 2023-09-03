@@ -1,0 +1,23 @@
+#!name=百度地图去广告
+#!desc=(2023-09-03)
+
+[MITM]
+hostname = %APPEND% 180.76.76.200, newclient.map.baidu.com, httpdns.baidubce.com
+
+[URL Rewrite]
+# 通用广告请求@ddgksf2013
+^https?:\/\/.*\.amap\.com\/ws\/asa\/ads_attribution - reject
+
+[Map Local]
+# > 百度地图_搜索框下足记Tips@ddgksf2013
+^https?:\/\/newclient\.map\.baidu\.com\/client\/phpui.*qt=rgc data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank.txt"
+# > 百度地图_搜索推广@ddgksf2013
+^https?:\/\/newclient\.map\.baidu\.com\/client\/phpui.*qt=hw data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank.txt"
+# > 百度地图_开屏广告|首页左上角广告@ddgksf2013
+^https?:\/\/newclient\.map\.baidu\.com\/client\/phpui2\/\?qt=ads data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank.txt"
+# > 百度地图_DNS处理@ddgksf2013
+^https?:\/\/httpdns\.baidubce\.com data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank.txt"
+# > 百度地图_各种商业推广@ddgksf2013
+^https?:\/\/newclient\.map\.baidu\.com\/client\/crossmarketing data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank.txt"
+# > 百度地图_我的页面地图动态@ddgksf2013
+^https?:\/\/newclient\.map\.baidu\.com\/client\/usersystem\/home\/dynamic data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank.txt"
