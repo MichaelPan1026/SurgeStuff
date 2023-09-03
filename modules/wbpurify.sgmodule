@@ -1,5 +1,5 @@
 #!name=微博/微博轻享版净化
-#!desc=(2023-07-05)
+#!desc=(2023-09-03)
 
 [MITM]
 hostname = %APPEND% api.weibo.*, *.api.weibo.*, mapi.weibo.*, *.uve.weibo.com, new.vip.weibo.cn, boot.biz.weibo.com
@@ -12,20 +12,22 @@ DOMAIN,boot.biz.weibo.com,REJECT
 ^https?:\/\/sdkapp\.uve\.weibo\.com\/interface\/sdk\/sdkconfig\.php - reject
 
 [Map Local]
+# > 微博国际版_趋势页热门影片@ddgksf2013
+^https?:\/\/api\.weibo\.cn\/\d\/cardlist\?v_f=.*Weibo_intl data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank_dict.json"
 # > 微博_用户推荐弹窗@ddgksf2013
-^https?:\/\/api\.weibo\.cn\/\d\/profile\/recommend_popuser data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank.txt"
+^https?:\/\/api\.weibo\.cn\/\d\/profile\/recommend_popuser data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank_dict.json"
 # > 微博_每日一次的开屏广告请求@ddgksf2013
 ^https?:\/\/boot.*weibo\.com\/v\d\/ad\/realtime data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank.txt"
-# 微博国际版_hot_search@ddgksf2013
-^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php\?a=hot_search_users data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank_dict.json"
-# 微博国际版_热推荐@ddgksf2013
-^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/ad\/weibointl\? data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank_dict.json"
 # > 微博_去除底部超话栏表层浮icon及tips@ddgksf2013
 ^https?:\/\/api\.weibo\.cn\/\d\/!\/huati\/discovery_home_bottom_getdotinfo data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank_dict.json"
 # > 微博_屏蔽首页左上角每日的弹窗tips@ddgksf2013
 ^https?:\/\/m?api\.weibo\.c(n|om)\/\d/push/daily data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank_dict.json"
 # > 微博_Spotlight@ddgksf2013
 ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/hot\/hours_spotlight data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank_dict.json"
+# 微博国际版_hot_search@ddgksf2013
+^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php\?a=hot_search_users data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank_dict.json"
+# 微博国际版_热推荐@ddgksf2013
+^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/ad\/weibointl\? data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank_dict.json"
 # 微博国际版_屏蔽searching_info@shiro
 ^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php.*user&a=get_searching_info data="https://github.com/ddgksf2013/Scripts/raw/master/weibo_search_info.json"
 # 微博国际版_屏蔽search_topic@shiro
