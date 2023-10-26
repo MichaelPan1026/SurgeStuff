@@ -1,31 +1,56 @@
-#!name=高德地图☆净化
-#!desc=(2023-07-05)
+#!name = 高德地图去广告
+#!desc = 过滤高德地图广告
+#!openUrl = 
+#!author = RuCu6 kokoryh
+#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/main/Tool/Loon/Plugin
+#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/120px/Amap.png
+#!date = 2023-09-15 11:20:57
 
 [MITM]
-hostname = %APPEND% *amap.com
+hostname = %APPEND% m5.amap.com, m5-zb.amap.com, oss.amap.com, sns.amap.com
 
-[URL Rewrite]
-# 通用广告请求@ddgksf2013
-^https?:\/\/.*\.amap\.com\/ws\/asa\/ads_attribution - reject
+[Rule]
+DOMAIN, amap-aos-info-nogw.amap.com, REJECT
+DOMAIN, awaken.amap.com, REJECT
+DOMAIN, free-aos-cdn-image.amap.com, REJECT
 
 [Map Local]
-# Tip请求@ddgksf2013
-^https?:\/\/.*\.amap\.com\/ws\/boss\/order_web\/\w{8}_information data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank.txt"
-# 搜索框scene@ddgksf2013
-^https?:\/\/.*\.amap\.com\/ws\/shield\/scene\/recommend data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank_dict.json"
-# 左下天气@ddgksf2013
-^https?:\/\/.*\.amap\.com\/ws\/valueadded\/weather data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank_dict.json"
-# 首页左上角gif@ddgksf2013
-^https?:\/\/.*\.amap\.com\/uploadimg\/\w+\.gif data="https://raw.githubusercontent.com/MichaelPan1026/SurgeStuff/main/blank/blank.gif"
+# 导航详情页 - 路线规划、地点详情页、搜索详情页、导航结束页
+^https:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/card-service-(car-end|route-plan)\? data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank_dict.json"
+^https:\/\/m5\.amap\.com\/ws\/shield\/search\/new_hotword\? data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank_dict.json"
+^https:\/\/m5\.amap\.com\/ws\/shield\/search_poi\/tips_adv\? data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank_dict.json"
+^https:\/\/oss\.amap\.com\/ws\/banner\/lists\/\? data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank_dict.json"
+
+# 首页 - 推广卡片、红点角标、右上角动图、搜索框热词、左下角天气、消息横幅
+^https:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/main-page-(assets|location)\? data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank_dict.json"
+^https:\/\/m5\.amap\.com\/ws\/(mapapi\/hint_text\/offline_data|message\/notice\/list|shield\/search\/new_hotword)\? data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank_dict.json"
+^https:\/\/m5\.amap\.com\/ws\/shield\/scene\/recommend\? data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank_dict.json"
+^https:\/\/m5\.amap\.com\/ws\/valueadded\/weather\/v2\? data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank_dict.json"
+^https:\/\/sns\.amap\.com\/ws\/msgbox\/pull_mp\? data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank_dict.json"
+
+# 打车页 - 红点角标、弹窗、天气图标、推广卡片
+^https:\/\/m5-zb\.amap\.com\/ws\/boss\/(car\/order\/content_info|order\/car\/king_toolbox_car_bubble)\? data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank_dict.json"
+^https:\/\/m5-zb\.amap\.com\/ws\/boss\/(order_web\/friendly_information|tips\/onscene_visual_optimization)\? data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank_dict.json"
 
 [Script]
-amdc处理@ddgksf2013 = type=http-response,requires-body=1,max-size=0,pattern=^http:\/\/amdc\.m\.taobao\.com,script-path=https://github.com/ddgksf2013/Scripts/raw/master/amdc.js
-底部tab栏角标@ddgksf2013 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/.*\.amap\.com\/ws\/message\/notice\/list,script-path=https://github.com/ddgksf2013/Scripts/raw/master/amap.js
-首页右中广告@ddgksf2013 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/.*\.amap\.com\/ws\/shield\/frogserver\/aocs\/updatable,script-path=https://github.com/ddgksf2013/Scripts/raw/master/amap.js
-附近页面@ddgksf2013 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/.*\.amap\.com\/ws\/shield\/search\/nearbyrec_smart,script-path=https://github.com/ddgksf2013/Scripts/raw/master/amap.js
-打车页面@ddgksf2013 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/.*\.amap\.com\/ws\/promotion-web\/resource,script-path=https://github.com/ddgksf2013/Scripts/raw/master/amap.js
-首页底部处理@ddgksf2013 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/.*\.amap\.com\/ws\/faas\/amap-navigation\/main-page,script-path=https://github.com/ddgksf2013/Scripts/raw/master/amap.js
-开屏广告@ddgksf2013 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/.*\.amap\.com\/ws\/valueadded\/alimama\/splash_screen,script-path=https://github.com/ddgksf2013/Scripts/raw/master/amap.js
-首页顶部推广@ddgksf2013 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/.*\.amap\.com\/ws\/msgbox\/pull,script-path=https://github.com/ddgksf2013/Scripts/raw/master/amap.js
-我的页面@ddgksf2013 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/.*\.amap\.com\/ws\/shield\/dsp\/profile\/index\/nodefaas,script-path=https://github.com/ddgksf2013/Scripts/raw/master/amap.js
-搜索框热词@ddgksf2013 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/.*\.amap\.com\/ws\/shield\/search\/new_hotword,script-path=https://github.com/ddgksf2013/Scripts/raw/master/amap.js
+# 导航详情页 - 路线规划、地点详情页、搜索详情页、导航结束页
+移除导航详情页扰人组件 = type=http-response,requires-body=1,max-size=0,pattern=^https:\/\/m5\.amap\.com\/ws\/perception\/drive\/routePlan\?,script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Amap/Amap_remove_ads.js 
+移除导航详情页扰人组件2 = type=http-response,requires-body=1,max-size=0,pattern=^https:\/\/m5\.amap\.com\/ws\/shield\/search\/(common\/coupon\/info|poi\/detail)\?,script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Amap/Amap_remove_ads.js 
+移除导航详情页扰人组件3 = type=http-response,requires-body=1,max-size=0,pattern=^https:\/\/m5\.amap\.com\/ws\/shield\/search_poi\/(homepage|mps|search\/sp|sug|tips_operation_location)\?,script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Amap/Amap_remove_ads.js 
+
+# 首页 - 推广卡片、红点角标、右上角动图、搜索框热词、左下角天气、消息横幅
+移除首页扰人组件 = type=http-response,requires-body=1,max-size=0,pattern=^https:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/(card-service-plan-home|main-page)\?,script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Amap/Amap_remove_ads.js 
+移除首页扰人组件2 = type=http-response,requires-body=1,max-size=0,pattern=^https:\/\/m5\.amap\.com\/ws\/shield\/frogserver\/aocs\/updatable\/1\?,script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Amap/Amap_remove_ads.js 
+
+# 我的页面 - 个人主页、推广卡片
+移除我的页面扰人组件 = type=http-response,requires-body=1,max-size=0,pattern=^https:\/\/m5\.amap\.com\/ws\/shield\/dsp\/profile\/index\/nodefaasv3\?,script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Amap/Amap_remove_ads.js 
+
+# 附近页
+移除附近页推广 = type=http-response,requires-body=1,max-size=0,pattern=^https:\/\/m5\.amap\.com\/ws\/shield\/search\/nearbyrec_smart\?,script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Amap/Amap_remove_ads.js 
+
+# 开屏广告
+移除开屏广告 = type=http-response,requires-body=1,max-size=0,pattern=^https:\/\/m5\.amap\.com\/ws\/valueadded\/alimama\/splash_screen\?,script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Amap/Amap_remove_ads.js 
+
+# 打车页 - 红点角标、弹窗、推广卡片
+移除打车页推广 = type=http-response,requires-body=1,max-size=0,pattern=^https:\/\/m5-zb\.amap\.com\/ws\/promotion-web\/resource(\/home)?\?,script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Amap/Amap_remove_ads.js 
+移除打车页推广2 = type=http-response,requires-body=1,max-size=0,pattern=^https:\/\/m5-zb\.amap\.com\/ws\/sharedtrip\/taxi\/order_detail_car_tips\?,script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Amap/Amap_remove_ads.js 
