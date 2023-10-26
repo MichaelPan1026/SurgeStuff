@@ -1,22 +1,56 @@
-#!name=菜鸟裹裹净化
-#!desc=(2023-09-03)
+#!name = 菜鸟去广告
+#!desc = 过滤菜鸟广告
+#!openUrl = 
+#!author = keywos RuCu6
+#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/main/Tool/Loon/Plugin
+#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/120px/Cainiao.png
+#!date = 2023-10-10 13:15:36
 
 [MITM]
 hostname = %APPEND% cn-acs.m.cainiao.com, guide-acs.m.taobao.com
 
+[Rule]
+DOMAIN, adsmind.ugdtimg.com, REJECT
+DOMAIN, amdc.m.youku.com, REJECT
+DOMAIN, apiv4-iyes.youku.com, REJECT
+DOMAIN, httpdns.alicdn.com, REJECT
+DOMAIN, huichuan-mc.sm.cn, REJECT
+DOMAIN, huichuan.sm.cn, REJECT
+DOMAIN, iyes.youku.com, REJECT
+# DOMAIN, m-vali.cp31.ott.cibntv.net, REJECT
+DOMAIN, mc.atm.youku.com, REJECT
+DOMAIN, vali-g1.cp31.ott.cibntv.net, REJECT
+DOMAIN, vali-ugc.cp31.ott.cibntv.net, REJECT
+DOMAIN, yk-ssp.ad.youku.com, REJECT
+DOMAIN, ykad-data.youku.com, REJECT
+
 [Map Local]
-# > 菜鸟裹裹_通用广告请求@ddgksf2013
-^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads\.(show|mshow)\.cn\/ data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank.txt"
-# > 菜鸟裹裹_支付宝小程序_通用广告请求@ddgksf2013
-^https?:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads\.show data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank.txt"
-# > 菜鸟裹裹_支付宝小程序_底部商品推广@ddgksf2013
-^https?:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.cainiao\.adx\.flyad\.getad data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank.txt"
-# > 菜鸟裹裹_支付宝小程序_匿名选择@ddgksf2013
-^https?:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.cainiao\.nbmensa\.research\.researchservice\.consultmerge data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank.txt"
+# 首页 - 好物推荐、商品推广、底部标签页、快递详情页、问卷调查、主页图标
+^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.adkeyword\.get\.cn data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank_dict.json"
+^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.cncommunity\.my\.station\.query\.cn data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank_dict.json"
+^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads\.(batch\.show\.v2|index)\.cn data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank_dict.json"
+^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.nbopen\.miniapp\.recommend\.cpc\.cn data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank_dict.json"
+^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.nbmensa\.research\.researchservice\.(acquire|event|close)\.cn data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank_dict.json"
+^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.nbpresentation\.(homepage\.merge|tabbar\.marketing)\.get\.cn data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank_dict.json"
+
+# 发现页 - 数字角标、裹裹券
+^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.com\.cainiao\.cnactivitycenter data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank_dict.json"
+^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.com\.cainiao\.cncreditmarket\.hit\.getactivityhit\.cn data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank_dict.json"
+^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.com\.cainiao\.longquan\.place\.getpageresourcecontent\.cn data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank_dict.json"
+
+# 支付宝 - 菜鸟小程序
+^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.cainiao\.adx\.flyad\.getad data="https://github.com/MichaelPan1026/SurgeStuff/raw/main/blank/blank_dict.json"
 
 [Script]
-菜鸟裹裹_amdc处理[Anti已将Amdc分流删除,故更换屏蔽策略]@ddgksf2013 = type=http-response,requires-body=1,max-size=0,pattern=^http:\/\/amdc\.m\.taobao\.com,script-path=https://github.com/ddgksf2013/Scripts/raw/master/amdc.js
-菜鸟裹裹_首页中部的惊喜福利推广@ddgksf2013 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.nbpresentation\.protocol\.homepage\.get\.cn,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/cainiao_json.js
-菜鸟裹裹_搜索框下方今日好物推荐@ddgksf2013 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.adkeyword,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/cainiao_json.js
-菜鸟裹裹_首页底部商品推广@ddgksf2013 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads\.index\.cn,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/cainiao_json.js
-菜鸟裹裹_支付宝小程序_中部的寄件推广[导致的空白占位后续处理]@ddgksf2013 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads\.mshow,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/cainiao_json.js
+# 移除阿里巴巴通用广告请求
+移除阿里巴巴通用广告请求 = type=http-response,requires-body=1,max-size=0,pattern=^http:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch,script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Alibaba/Alibaba_amdc_reject.js
+
+# 首页 - 好物推荐、商品推广、底部标签页、快递详情页、问卷调查、主页图标
+移除首页推广 = type=http-response,requires-body=1,max-size=0,pattern=^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads\.m?show\.cn,script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Cainiao/Cainiao_remove_ads.js
+移除首页推广2 = type=http-response,requires-body=1,max-size=0,pattern=^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.nbpresentation\.(pickup\.empty\.page|protocol\.homepage)\.get\.cn,script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Cainiao/Cainiao_remove_ads.js
+
+# 消息中心
+移除消息中心推广 = type=http-response,requires-body=1,max-size=0,pattern=^https:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.nbfriend\.message\.conversation\.list\.cn,script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Cainiao/Cainiao_remove_ads.js
+
+# 支付宝 - 菜鸟小程序
+移除菜鸟小程序推广 = type=http-response,requires-body=1,max-size=0,pattern=^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads\.mshow,script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Cainiao/Cainiao_remove_ads.js
